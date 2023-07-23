@@ -98,6 +98,12 @@
 
 ## 10 章
 
+- パターン２）無料でドメインを取得しよう
+
+  - [お名前.com](https://www.onamae.com/)
+
+- [Amplify で HTTPS 化しよう](./chapter-10/amplify_console.md)
+
 ## 11 章
 
 - [ECR リポジトリを作成しよう](./chapter-11/ecr.md)
@@ -115,6 +121,8 @@
   - [main.go](./chapter-11/src/go/main.go)
 
   - [Dockerfile](./chapter-11/src/go/Dockerfile)
+
+- [イメージを作成して ECR リポジトリにプッシュしよう](./chapter-11/push.md)
 
 - [App Runner を構築しよう](./chapter-11/apprunner.md)
 
@@ -147,3 +155,7 @@
   - [Aurora.jsx](./chapter-12/src/frontend/Aurora.jsx)
 
   - [App.js](./chapter-12/src/frontend/App.js)
+
+## 13 章
+
+- [後片付け](./chapter-13/clean_up.md)
