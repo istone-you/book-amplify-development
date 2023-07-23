@@ -1,0 +1,35 @@
+{
+  "AWSTemplateFormatVersion": "2010-09-09",
+  "Parameters": {
+    "env": {
+      "Type": "String"
+    }
+  },
+  "Resources": {
+    "SNSTopic": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {
+        "TopicName": {
+          "Fn::Sub": "sns-topic-${AWS::StackName}-${env}"
+        }
+      }
+    },
+    "SNSSubscriptionEmail": {
+      "Type": "AWS::SNS::Subscription",
+      "Properties": {
+        "Protocol": "email",
+        "TopicArn": {
+          "Ref": "SNSTopic"
+        },
+        "Endpoint": "your-email@example.com"
+      }
+    }
+  },
+  "Outputs": {
+    "snsTopicARN": {
+      "Value": {
+        "Ref": "SNSTopic"
+      }
+    }
+  }
+}

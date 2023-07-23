@@ -1,0 +1,29 @@
+version: 1
+backend:
+  phases:
+    preBuild:
+      commands:
+        - AWS_ACCOUNT_ID=$(aws sts get-caller-identity --query 'Account' --output text)
+    build:
+      commands:
+        - "# Execute Amplify CLI with the helper script"
+        - amplifyPush --simple
+        - aws ecr get-login-password --region ap-northeast-1 | docker login --username AWS --password-stdin ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com
+        - docker build -t amplifyapp-ecr-${AWS_BRANCH} apprunner/
+        - docker tag amplifyapp-ecr-${AWS_BRANCH}:latest ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/amplifyapp-ecr-${AWS_BRANCH}:latest
+        - docker push ${AWS_ACCOUNT_ID}.dkr.ecr.ap-northeast-1.amazonaws.com/amplifyapp-ecr-${AWS_BRANCH}:latest
+frontend:
+  phases:
+    preBuild:
+      commands:
+        - npm ci
+    build:
+      commands:
+        - npm run build
+  artifacts:
+    baseDirectory: build
+    files:
+      - "**/*"
+  cache:
+    paths:
+      - node_modules/**/*
