@@ -37,6 +37,8 @@
 
 - [GraphQL のテストをしよう](./chapter-5/amplify_mock_api.md)
 
+  - [schema.graphql](./chapter-5/src/mock/schema.graphql)
+
 - [フロントエンドに反映しよう](./chapter-5/frontend.md)
   - [DynamoDB.jsx](./chapter-5/src/frontend/DynamoDB.jsx)
   - [App.js](./chapter-5/src/frontend/App.js)
@@ -64,7 +66,7 @@
 
 - [Amplify CLI で Lambda を構築しよう](./chapter-8/amplify_add_function.md)
 
-- パターン１）Node.js で Lambda 関数を作成しよう
+- [パターン１）Node.js で Lambda 関数を作成しよう](./chapter-8/nodejs.md)
 
   - [index.js](./chapter-8/src/node.js/index.js)
 

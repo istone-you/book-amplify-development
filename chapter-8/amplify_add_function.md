@@ -1,0 +1,3 @@
+```sh
+$ amplify add function
+```
